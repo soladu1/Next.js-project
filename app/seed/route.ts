@@ -113,7 +113,7 @@ export async function GET() {
       seedRevenue(),
     ]);
 
-    return Response.json({ message: "Database seeded successfully" });
+    return Response.json({ message: "Database Connected successfully" });
   } catch (error) {
     return Response.json({ error }, { status: 500 });
   }
