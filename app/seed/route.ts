@@ -1,8 +1,11 @@
-import bcrypt from 'bcryptjs';
-import postgres from 'postgres';
-import { invoices, customers, revenue, users } from '../lib/placeholder-data';
-export const dynamic = 'force-dynamic';
-const sql = postgres(process.env.POSTGRES_URL!, { ssl: 'require' });
+import bcrypt from "bcryptjs";
+import postgres from "postgres";
+import { invoices, customers, revenue, users } from "../lib/placeholder-data";
+export const dynamic = "force-dynamic";
+const sql = postgres(
+  "postgresql://neondb_owner:npg_8s2wMxvbaTjl@ep-long-bread-atyhd99e-pooler.c-9.us-east-1.aws.neon.tech/neondb?channel_binding=require&sslmode=require",
+  { ssl: "require" },
+);
 
 async function seedUsers() {
   await sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;
@@ -110,7 +113,7 @@ export async function GET() {
       seedRevenue(),
     ]);
 
-    return Response.json({ message: 'Database seeded successfully' });
+    return Response.json({ message: "Database seeded successfully" });
   } catch (error) {
     return Response.json({ error }, { status: 500 });
   }
