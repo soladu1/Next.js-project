@@ -3,7 +3,6 @@ import postgres from "postgres";
 import { invoices, customers, revenue, users } from "../lib/placeholder-data";
 export const dynamic = "force-dynamic";
 const sql = postgres("postgresql://neondb_owner:npg_8s2wMxvbaTj1@ep-long-bread-atyhd99e-pooler.c-9.us-east-1.aws.neon.tech/neondb?sslmode=require", { ssl: 'require' });
-
 async function seedUsers() {
   await sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;
   await sql`
