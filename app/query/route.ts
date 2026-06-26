@@ -1,9 +1,6 @@
 import postgres from "postgres";
 
-const sql = postgres(
-  "postgresql://neondb_owner:npg_8s2wMxvbaTj1@ep-long-bread-atyhd99e-pooler.c-9.us-east-1.aws.neon.tech/neondb?sslmode=require",
-  { ssl: "require" },
-);
+const sql = postgres("postgresql://neondb_owner:npg_8s2wMxvbaTj1@ep-long-bread-atyhd99e-pooler.c-9.us-east-1.aws.neon.tech/neondb?sslmode=require", { ssl: 'require' });
 
 async function listInvoices() {
   const data = await sql`
